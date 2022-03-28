@@ -83,8 +83,8 @@ public class Main {
     }
 
     public static void createNewFile(String fileName, String filepath){
-        String tempFile = "temp.txt";
-        File oldFile = new File(fileName + ".txt");
+        String tempFile = "temp.csv";
+        File oldFile = new File(fileName + ".csv");
         File newFile = new File(tempFile);
         String userId= "";
         String firstName = "";
@@ -118,7 +118,7 @@ public class Main {
             pw.flush();
             pw.close();
             oldFile.delete();
-            File dump = new File(fileName+".txt");
+            File dump = new File(fileName+".csv");
             newFile.renameTo(dump);
 
         }catch (Exception e){
@@ -130,8 +130,8 @@ public class Main {
     }
 
     public static void editFile(List sortedList, String filepath,HashMap<String,Integer> idAndVersion){
-        String tempFile = "temp.txt";
-        File oldFile = new File(filepath + ".txt");
+        String tempFile = "temp.csv";
+        File oldFile = new File(filepath + ".csv");
         File newFile = new File(tempFile);
         String userId;
         String firstName;
@@ -146,7 +146,7 @@ public class Main {
                 BufferedWriter bw = new BufferedWriter(fw);
                 PrintWriter pw = new PrintWriter(bw);
                 while (i < sortedList.size()){
-                    reader = new Scanner(new File(filepath+".txt"));
+                    reader = new Scanner(new File(filepath+".csv"));
                     reader.useDelimiter(",|\\r\\n");
                     while (reader.hasNext()){
                         userId = reader.next();
@@ -172,7 +172,7 @@ public class Main {
                 pw.flush();
                 pw.close();
                 oldFile.delete();
-                File dump = new File(filepath+".txt");
+                File dump = new File(filepath+".csv");
                 newFile.renameTo(dump);
 
             }catch (Exception e){
@@ -192,7 +192,7 @@ public class Main {
         HashMap<String, Integer> idAndVersion = new HashMap<String, Integer>();
         try {
 
-            reader = new Scanner(new File(filepath + ".txt"));
+            reader = new Scanner(new File(filepath + ".csv"));
             reader.useDelimiter(",|\\r\\n");
             while (reader.hasNext()){
 
